@@ -8,7 +8,7 @@
 # edit that file.
 
 # Should we start varnishd at boot?  Set to "no" to disable.
-START=no
+START=yes
 
 # Maximum number of open files (for ulimit -n)
 NFILES=131072
