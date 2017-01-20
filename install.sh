@@ -66,15 +66,9 @@ echo "action=rewrite&value=httpd" >> /usr/local/directadmin/data/task.queue
 
 #Config Varnish Cache
 cd /etc/default/
+wget https://raw.githubusercontent.com/csabyka/Varnish-Directadmin/master/varnish
 ip=$(( lynx --dump cpanel.net/showip.cgi ) 2>&1 | sed "s/ //g")
-sed -i "s#host = \"127.0.0.1\"#host = \"$ip\"#g" ./varnish
-
-#listen @80
-cd /etc/default/
-sed -i 's#VARNISH_LISTEN_PORT=6081#VARNISH_LISTEN_PORT=80#g' ./varnish
-
-#Start When Reboot
-sed -i 's#START=no#START=yes#g' ./varnish
+sed -i "s#VARNISH_LISTEN_ADDRESS=XXXXXX#VARNISH_LISTEN_ADDRESS=$ip#g" ./varnish
 
 #Start Varnish Cache
 service httpd restart
@@ -85,5 +79,5 @@ echo -e "$GREEN---------------------------------------------------$RESET"
 echo -e "$GREEN      Varnish Cache Install Completed       $RESET"
 echo -e "You can monitor varnish cache with command:$GREEN varnishstat $RESET"
 echo -e "You can check log varnish cache with command:$GREEN varnishlog $RESET"
-echo -e "If have anything problem or bug. Please contact to Github: https://github.com/jazz1611/Varnish-Directadmin"
+echo -e "If have anything problem or bug. Please contact to Github: https://github.com/csabyka/Varnish-Directadmin"
 echo -e "$GREEN---------------------------------------------------$RESET"
