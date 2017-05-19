@@ -29,4 +29,4 @@ Version 1.1 (Jan 21, 2017)
 Feedback, Bugs, Issues, Feature requests
 ===================
 Please post your feedback and any issues or feature requests/suggestions at: <br />
-https://github.com/csabyka/Varnish-Directadmin/issues
+https://github.com/Webstorm-IL/Varnish-Directadmin/issues
